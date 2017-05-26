@@ -1,0 +1,2 @@
+- move over to using a logger.
+- a thorough test
