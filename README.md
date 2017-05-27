@@ -1,6 +1,7 @@
 set environment variables:
 - YOUTUBE_API
 - GOOGLE_ASSISTANT_LOCATION ( for the voice control to work )
+- KODI_ENDPOINT_ADDRESS eg. http://192.x.y.z:8080
 
 
 for current version of voice control to work, you need to:
