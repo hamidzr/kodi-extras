@@ -11,8 +11,7 @@ import os
 
 # init
 LOG_LOCATION='googleAssistant.log'
-GOOGLE_ASSISTANT_LOCATION= os.environ['GOOGLE_ASSISTANT_LOCATION'] or '/home/pi/env/bin/google-assistant-demo'
-
+GOOGLE_ASSISTANT_LOCATION= os.getenv('GOOGLE_ASSISTANT_LOCATION', '/home/pi/env/bin/google-assistant-demo' )
 
 COMMANDS = [
     {
