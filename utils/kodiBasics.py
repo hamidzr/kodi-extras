@@ -2,7 +2,7 @@ import sys
 from .basics import *
 # init
 # TODO provide an option of using config files
-KODI_ADDRESS = os.getenv(KODI_ENDPOINT_ADDRESS,'http://localhost:8080')
+KODI_ADDRESS = os.getenv('KODI_ENDPOINT_ADDRESS','http://localhost:8080')
 
 
 
