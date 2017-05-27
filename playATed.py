@@ -11,7 +11,7 @@ TED_CHANNEL = 'UCAuUUnT6oDeKwE6v1NGQxug'
 
 tedSurprisesJson = getJson('https://www.ted.com/surpriseme.json?minutes={}&rating_word_id={}'.format(PLAYBACK_DURATION,TED_CATEGORY_ID))
 for surprise in tedSurprisesJson['talks']:
-	luckyVideoJson = ytSearchChannel(surprise['title'], 1, TED_CHANNEL)
-	ytId = luckyVideoJson['items'][0]['id']['videoId']
-	playOnKodi('plugin://plugin.video.youtube/?action=play_video&videoid={}'.format(ytId))
-	break
+    luckyVideoJson = ytSearchChannel(surprise['title'], 1, TED_CHANNEL)
+    ytId = luckyVideoJson['items'][0]['id']['videoId']
+    playOnKodi('plugin://plugin.video.youtube/?action=play_video&videoid={}'.format(ytId))
+    break

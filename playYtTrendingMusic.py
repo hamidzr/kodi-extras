@@ -15,15 +15,15 @@ urls = []
 try:
     searchResultsJson = getYtPlaylist(sys.argv[1])
 except Exception as e:
-	pass
+    pass
 searchResultsJson = getYtPlaylist()
 for idx, res in enumerate(searchResultsJson['items']):
-	id = res['contentDetails']['videoId']
-	try:
-		print(str(idx+1) + '. ' + res['snippet']['title'])
-	except Exception as e:
-		print('failed to print name')
-	urls.append("plugin://plugin.video.youtube/?action=play_video&videoid={}".format(id))
+    id = res['contentDetails']['videoId']
+    try:
+        print(str(idx+1) + '. ' + res['snippet']['title'])
+    except Exception as e:
+        print('failed to print name')
+    urls.append("plugin://plugin.video.youtube/?action=play_video&videoid={}".format(id))
 createPlaylist(urls)
 setShuffle(True)
 playPlaylist()
