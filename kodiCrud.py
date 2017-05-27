@@ -26,6 +26,10 @@ actionMap = {
     'volume 6': {"method":"Application.SetVolume","params":{"volume":60}},
     'volume 5': {"method":"Application.SetVolume","params":{"volume":50}},
     'volume nine': {"method":"Application.SetVolume","params":{"volume":90}},
+    'volume eight': {"method":"Application.SetVolume","params":{"volume":80}},
+    'volume seven': {"method":"Application.SetVolume","params":{"volume":70}},
+    'volume six': {"method":"Application.SetVolume","params":{"volume":60}},
+    'volume five': {"method":"Application.SetVolume","params":{"volume":50}},
 }
 
 # run pass the selected option
