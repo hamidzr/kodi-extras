@@ -7,7 +7,7 @@ COMMANDS = [
     },
     {
         'aliases': ['play music'],
-        'script': 'python3.6 playMusicTrends.py'
+        'script': 'python3.6 playYtTrendingMusic.py'
     },
     {
         'aliases': ['play'],
