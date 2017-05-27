@@ -24,6 +24,7 @@ def playOnKodi(uri):
     requestKodi({"method":"GUI.SetFullscreen","params":{"fullscreen":True}})
 
 def clearPlaylist(id=1):
+    requestKodi({"method":"Player.Stop","params":{"playerid":1}})
     return requestKodi({"method":"Playlist.Clear","params":{"playlistid":1}})
 
 # queues up a list of urls

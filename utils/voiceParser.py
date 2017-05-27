@@ -81,7 +81,7 @@ def listen(commandsMap):
     speech = re.compile(r"\: ('|\\\")(.*)('|\\\")\}")
     for line in loglines:
         try:
-            sentence = speech.search(line).group(2)
+            sentence = speech.search(line).group(2).lower()
             print('user said:',sentence)
             for entry in commandsMap:
                 # if a cmd is detected don't check for other commands
