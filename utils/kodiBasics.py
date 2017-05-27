@@ -21,6 +21,7 @@ def requestKodi(kodiReqJson):
 # pre: a kodi friendly uri (plugin or internet)
 def playOnKodi(uri):
     return requestKodi({"jsonrpc":"2.0","id":"1","method":"Player.Open","params":{"item":{"file":uri}}})
+    requestKodi({"method":"GUI.SetFullscreen","params":{"fullscreen":True}})
 
 def clearPlaylist(id=1):
     return requestKodi({"method":"Playlist.Clear","params":{"playlistid":1}})
@@ -34,7 +35,8 @@ def createPlaylist(urls):
 
 def playPlaylist(id=1):
     # play the playlist
-    return requestKodi({"method":"Player.Open","params":{"item":{"playlistid":1},"options":{"repeat":"all"}}})
+    requestKodi({"method":"Player.Open","params":{"item":{"playlistid":1},"options":{"repeat":"all"}}})
+    requestKodi({"method":"GUI.SetFullscreen","params":{"fullscreen":True}})
 
 def setShuffle(shuffle):
     # shuffle the playlist

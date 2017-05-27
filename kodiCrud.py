@@ -12,6 +12,7 @@ from utils.kodiBasics import *
 action = sys.argv[1].lower()
 actionMap = {
     'play': {"method":"Player.PlayPause","params":{"playerid":1}},
+    'resume': {"method":"Player.PlayPause","params":{"playerid":1}},
     'pause': {"method":"Player.PlayPause","params":{"playerid":1}},
     'stop': {"method":"Player.Stop","params":{"playerid":1}},
     'next': {"method":"Player.GoTo","params":{"playerid":1,"to":"next"}},
@@ -34,3 +35,6 @@ actionMap = {
 
 # run pass the selected option
 print(requestKodi(actionMap[action]))
+
+if action in ['play','resume','next']:
+    requestKodi({"method":"GUI.SetFullscreen","params":{"fullscreen":True}})
