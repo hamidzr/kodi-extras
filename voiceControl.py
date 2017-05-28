@@ -11,7 +11,7 @@ COMMANDS = [
     },
     {
         'aliases': ['play'],
-        'script': 'python3.6 playYtSearch.py 5'
+        'script': 'python3.6 playYtSearch.py 10'
     }
 ]
 

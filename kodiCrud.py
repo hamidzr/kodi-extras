@@ -3,10 +3,6 @@
 # description: simple playback actions for kodi
 
 from utils.kodiBasics import *
-# import urllib.request
-# from urllib.parse import quote
-# import json
-# import sys
 
 
 action = sys.argv[1].lower()
@@ -36,5 +32,6 @@ actionMap = {
 # run pass the selected option
 print(requestKodi(actionMap[action]))
 
+# make sure it is playing on full screen
 if action in ['play','resume','next']:
     requestKodi({"method":"GUI.SetFullscreen","params":{"fullscreen":True}})

@@ -2,11 +2,6 @@
 
 from utils.kodiBasics import *
 from utils.youtube import *
-# import urllib.request
-# from urllib.parse import quote
-# from utils.basics import *
-# import json
-# import sys
 
 
 clearPlaylist()

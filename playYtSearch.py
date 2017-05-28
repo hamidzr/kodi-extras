@@ -2,12 +2,7 @@
 
 from utils.kodiBasics import *
 from utils.youtube import *
-# import urllib.request
-# from urllib.parse import quote
-# import json
-# import sys
 
-clearPlaylist()
 itemCount = int(sys.argv[1]) # number of results to add for each search query
 
 for query in sys.argv[2:]:
@@ -21,6 +16,7 @@ for query in sys.argv[2:]:
         	urls.append("plugin://plugin.video.youtube/?action=play_video&videoid={}".format(id))
         else:
         	break
+    clearPlaylist()
     createPlaylist(urls)
 setShuffle(False)
 playPlaylist()
