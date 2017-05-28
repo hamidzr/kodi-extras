@@ -42,3 +42,6 @@ def playPlaylist(id=1):
 def setShuffle(shuffle):
     # shuffle the playlist
     return requestKodi({"method":"Player.SetShuffle", "params":{"playerid":1,"shuffle":shuffle}})
+
+def getProperty(name):
+    return requestKodi({"method":"Application.GetProperties","params":{"properties":[name]}})['result'][name]
