@@ -45,7 +45,7 @@ def matchCommands(sentence, aliases, script):
     # if regexes are defined here they are compiled on every call
     for alias in aliases:
         print('checking for alias',alias)
-        cmdRe = re.compile("{} ?(.*)".format(alias)) # TODO make this case insensitive r""i
+        cmdRe = re.compile("^{} ?(.*)".format(alias)) # TODO make this case insensitive r""i
         try:
             args = cmdRe.search(sentence).group(1)
             print('running', alias, 'detected with args',args)
@@ -57,7 +57,7 @@ def matchCommands(sentence, aliases, script):
 
 
 def runCommand(script, args):
-    fullCmd = script + ' "' + args + '"'
+    fullCmd = script + ' "' + args + '"' if args else script
     print('calling', fullCmd)
     subprocess.run(fullCmd,shell=True)
 
