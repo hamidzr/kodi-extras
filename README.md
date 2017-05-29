@@ -8,7 +8,7 @@ for current version of voice control to work, you need to:
 1. compile python 3.6 from source for raspberry pi
 ```python
 sudo apt update
-sudo apt install build-essential
+sudo apt install build-essential -y
 wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
 tar xzvf Python-3.6.1.tgz
 cd Python-3.6.1/
@@ -20,3 +20,5 @@ sudo make install
 
 2. have google-assistant-demo installed
 https://developers.google.com/assistant/sdk/prototype/getting-started-pi-python/
+
+if you want to set audio out to analog: (aux out) `amixer cset numid=3 1`

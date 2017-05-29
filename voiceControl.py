@@ -2,7 +2,7 @@ from utils.voiceParser import *
 
 COMMANDS = [
     {
-        'aliases': ['please set', 'please','go','set'],
+        'aliases': ['please set', 'pls set', 'please','pls', 'go','set'],
         'script': 'python3.6 kodiCrud.py'
     },
     {
