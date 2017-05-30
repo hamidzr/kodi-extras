@@ -25,7 +25,7 @@ actionMap = {
     'volume low': [setVolume, 40],
     'volume medium': [setVolume, 70],
     'volume high': [setVolume, 90],
-    'volume max': [setVolume, 10],
+    'volume max': [setVolume, 100],
     'volume 9': [setVolume, 90],
     'volume 8': [setVolume, 80],
     'volume 7': [setVolume, 70],
