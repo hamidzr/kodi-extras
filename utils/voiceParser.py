@@ -13,23 +13,6 @@ import os
 LOG_LOCATION='googleAssistant.log'
 GOOGLE_ASSISTANT_LOCATION= os.getenv('GOOGLE_ASSISTANT_LOCATION', '/home/pi/env/bin/google-assistant-demo' )
 
-COMMANDS = [
-    {
-        'aliases': ['please set', 'please','go','set'],
-        'script': 'python3.6 kodiCrud.py'
-    },
-    {
-        'aliases': ['play music'],
-        'script': 'python3.6 playMusicTrends.py'
-    },
-    {
-        'aliases': ['play'],
-        'script': 'python3.6 playYtSearch.py 5'
-    }
-
-]
-
-
 def follow(thefile):
     thefile.seek(0,2)
     while True:
@@ -41,13 +24,21 @@ def follow(thefile):
 
 # alias is the phrase to listen for
 # script: script location and running with predefined args if any
-def matchCommands(sentence, aliases, script):
+def matchCommands(sentence, action):
     # if regexes are defined here they are compiled on every call
+    aliases = action['aliases']
+    script = action['script']
+    try:
+        hasArgs = action['hasArgs']
+    except Exception:
+        hasArgs = False
     for alias in aliases:
         print('checking for alias',alias)
         cmdRe = re.compile("^{} ?(.*)".format(alias)) # TODO make this case insensitive r""i
         try:
-            args = cmdRe.search(sentence).group(1)
+            searchRes = cmdRe.search(sentence)
+            searchRes.group(0) #check if command was found, thorws e if no match
+            args = searchRes.group(1) if hasArgs else None
             print('running', alias, 'detected with args',args)
             runCommand(script, args)
             return True
@@ -78,9 +69,9 @@ def listen(commandsMap):
         try:
             sentence = speech.search(line).group(2).lower()
             print('user said:',sentence)
-            for entry in commandsMap:
+            for action in commandsMap:
                 # if a cmd is detected don't check for other commands
-                if matchCommands(sentence, entry['aliases'], entry['script']):
+                if matchCommands(sentence, action):
                     break
         except Exception:
             print('.',end='')
