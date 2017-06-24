@@ -4,9 +4,9 @@
 # and runs the corresponding script with given arguments*
 # argument is what is left of the recognized sentence after alias is removed
 
+from .basics import *
 import time
 import re
-import subprocess
 import os
 
 # init
@@ -55,11 +55,6 @@ def matchCommands(sentence, aliases, script):
             print('.',end='')
     return False
 
-
-def runCommand(script, args):
-    fullCmd = script + ' "' + args + '"' if args else script
-    print('calling', fullCmd)
-    subprocess.run(fullCmd,shell=True)
 
 # commands map to run any arbitray script with dynamic with voice entered arguments
 # sort aliases by most restrictive first.

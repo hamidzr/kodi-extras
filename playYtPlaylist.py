@@ -10,8 +10,9 @@ urls = []
 try:
     searchResultsJson = getYtPlaylist(sys.argv[1])
 except Exception as e:
-    pass
-searchResultsJson = getYtPlaylist()
+    # default to trending musics
+    searchResultsJson = getYtPlaylist('PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth')
+
 for idx, res in enumerate(searchResultsJson['items']):
     id = res['contentDetails']['videoId']
     try:
