@@ -11,17 +11,24 @@ COMMANDS = [
         'script': 'python3.6 playYtPlaylist.py'
     },
     {
+        'aliases': ['play playlist', 'search playlist'],
+        'script': 'python3.6 playYtSearchPlaylist.py',
+        'hasArgs': True
+    },
+
+
+    {
+        'aliases': ['play'],
+        'script': 'python3.6 playYtSearch.py 10',
+        'hasArgs': True
+    },
+    {
         'aliases': ['next','skip'],
         'script': 'python3.6 kodiCrud.py next'
     },
     {
         'aliases': ['pause'],
         'script': 'python3.6 kodiCrud.py pause'
-    },
-    {
-        'aliases': ['play'],
-        'script': 'python3.6 playYtSearch.py 10',
-        'hasArgs': True
     }
 ]
 
