@@ -5,7 +5,6 @@
 # argument is what is left of the recognized sentence after alias is removed
 
 from .basics import *
-from .buzzer import beep
 import time
 import re
 import os
@@ -41,7 +40,7 @@ def matchCommands(sentence, action):
             searchRes.group(0) #check if command was found, thorws e if no match
             args = searchRes.group(1) if hasArgs else None
             print('running', alias, 'detected with args',args)
-            beep(0.07)
+            os.system('utils/buzzer.py 3000')
             runCommand(script, args)
             return True
         except Exception:
