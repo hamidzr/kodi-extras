@@ -66,6 +66,7 @@ def listen(commandsMap):
     loglines = follow(logfile)
     # regex to get the sentence detected by googleAss
     speech = re.compile(r"\: ('|\\\")(.*)('|\\\")\}")
+    # TODO regex to detect when voice detected (listening state)
     for line in loglines:
         try:
             sentence = speech.search(line).group(2).lower()

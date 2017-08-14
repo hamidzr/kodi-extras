@@ -20,6 +20,7 @@ for idx, res in enumerate(searchResultsJson['items']):
     except Exception as e:
         print('failed to print name')
     urls.append("plugin://plugin.video.youtube/?action=play_video&videoid={}".format(id))
+clearPlaylist()
 createPlaylist(urls)
 setShuffle(True)
 playPlaylist()

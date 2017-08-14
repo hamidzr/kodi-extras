@@ -12,10 +12,10 @@ for query in sys.argv[2:]:
     for idx, res in enumerate(searchResultsJson['items']):
         id = res['id']['videoId']
         if idx < itemCount:
-        	print(str(idx+1) + '. ' + res['snippet']['title'])
-        	urls.append("plugin://plugin.video.youtube/?action=play_video&videoid={}".format(id))
+            print(str(idx+1) + '. ' + res['snippet']['title'])
+            urls.append("plugin://plugin.video.youtube/?action=play_video&videoid={}".format(id))
         else:
-        	break
+            break
     clearPlaylist()
     createPlaylist(urls)
 setShuffle(False)
