@@ -16,4 +16,7 @@ def getJson(url):
 def runCommand(script, args):
     fullCmd = script + ' "' + args + '"' if args else script
     print('executing', fullCmd)
+    # TODO make the script execution non-blocking
     subprocess.run(fullCmd,shell=True)
+    # pid = subprocess.Popen([sys.executable, fullCmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+
