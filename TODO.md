@@ -1,2 +1,3 @@
+- use a separate thread to query remote servers including the kodi! ( blocks the voice parser )
 - move over to using a logger.
 - a thorough test
