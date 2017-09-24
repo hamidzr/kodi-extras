@@ -1,9 +1,10 @@
-import sys
+import sys, base64
 from .basics import *
 # init
 # TODO provide an option of using config files
 KODI_ADDRESS = os.getenv('KODI_ENDPOINT_ADDRESS','http://localhost:8080')
-
+USERNAME = os.getenv('KODI_USERNAME');
+PASSWORD = os.getenv('KODI_PASSWORD');
 
 
 # send a request object to kodi
@@ -12,6 +13,11 @@ def requestKodi(kodiReqJson):
     kodiReqJson['id'] = 1
     req = urllib.request.Request(url='{}/jsonrpc'.format(KODI_ADDRESS), method='POST')
     req.add_header('Content-Type','application/json')
+    if (PASSWORD != None):
+        # add authentication headers
+        authByte = bytes('{0}:{1}'.format(USERNAME, PASSWORD), 'utf-8')
+        base64string = base64.b64encode(authByte).decode('utf-8')
+        req.add_header("Authorization", "Basic %s" % base64string)
     req.data = json.dumps(kodiReqJson).encode('UTF-8')
     res = urllib.request.urlopen(req, timeout=30).read().decode('UTF-8')
     res = json.loads(res)
