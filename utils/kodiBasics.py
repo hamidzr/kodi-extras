@@ -11,17 +11,17 @@ PASSWORD = os.getenv('KODI_PASSWORD');
 def requestKodi(kodiReqJson):
     kodiReqJson['jsonrpc'] = '2.0'
     kodiReqJson['id'] = 1
-    req = urllib.request.Request(url='{}/jsonrpc'.format(KODI_ADDRESS), method='POST')
-    req.add_header('Content-Type','application/json')
+    headers = {'Content-Type': 'application/json'}
     if (PASSWORD != None):
         # add authentication headers
         authByte = bytes('{0}:{1}'.format(USERNAME, PASSWORD), 'utf-8')
         base64string = base64.b64encode(authByte).decode('utf-8')
-        req.add_header("Authorization", "Basic %s" % base64string)
-    req.data = json.dumps(kodiReqJson).encode('UTF-8')
-    res = urllib.request.urlopen(req, timeout=30).read().decode('UTF-8')
-    res = json.loads(res)
-    return res
+        headers['Authorization'] = f'Basic {base64string}'
+    reqData = json.dumps(kodiReqJson).encode('UTF-8')
+    print(f'sending request {kodiReqJson}')
+    res = requests.post('{}/jsonrpc'.format(KODI_ADDRESS), data=reqData, headers=headers, timeout=30)
+    # res = urllib.request.urlopen(req, timeout=30).read().decode('UTF-8')
+    return res.json()
 
 
 # pre: a kodi friendly uri (plugin or internet)

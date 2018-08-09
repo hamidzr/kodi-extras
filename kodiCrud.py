@@ -31,6 +31,7 @@ actionMap = {
     'volume 7': [setVolume, 70],
     'volume 6': [setVolume, 60],
     'volume 5': [setVolume, 50],
+    'volume 4': [setVolume, 40],
     'volume nine': [setVolume, 90],
     'volume eight': [setVolume, 80],
     'volume seven': [setVolume, 70],
