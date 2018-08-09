@@ -1,4 +1,4 @@
-#!/usr/bin/python3.6
+#!/usr/bin/env python3
 
 # description: this script takes a commands map defined below listens for aliases utilizing google assistant sdk
 # and runs the corresponding script with given arguments*

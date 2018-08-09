@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 from utils.kodiBasics import *
 from utils.youtube import *
@@ -10,5 +10,5 @@ searchResultsJson = ytSearchPlaylists(sys.argv[1]);
 for idx, res in enumerate(searchResultsJson):
     id = res['id']['playlistId']
     print(str(idx+1) + '. ' + res['snippet']['title'])
-    runCommand('python3 playYtPlaylist.py',"{}".format(id))
+    runCommand('env python3 playYtPlaylist.py',"{}".format(id))
     break
